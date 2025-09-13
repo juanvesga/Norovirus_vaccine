@@ -41,7 +41,7 @@ index     <- samples$predict$index
 rm(samples)
 
 
-tt<-which(state['t',1,]%in% data_all$day)
+tt<-which(state['t',1,]%in% data_all$time)
 state<-state[,,tt]
 
 times <- state['t',1,]
@@ -56,7 +56,7 @@ plot_reported_strain<-function(runs,strain,dat,num){
   #   date=total_cases_str$x,
   #   val =t(state[strain,,ii]))
   
-  
+
   
   df_s <- as.data.frame(
     rowQuantiles(t(runs[strain,,ii]),

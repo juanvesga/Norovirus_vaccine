@@ -28,9 +28,11 @@ comix      <- qs_read(infile3)
 school_uk  <- qs_read(infile4)
 covid_sche <- qs_read(infile5)
 
+
 fixed_pars<-list(
   pop=parameters$pop,
   mu =parameters$mort_rates/(365),
+  cfr=parameters$cfr,
   aging_vec = c(1/head(diff(c(0,parameters$ages)),-1),0)/(365), 
   N_age =length(parameters$ages),
   m = cmat$transmission, 
@@ -44,10 +46,15 @@ fixed_pars<-list(
   cmx_7 =comix$cmx_7,
   cmx_8 =comix$cmx_8,
   cmx_9 =comix$cmx_9,
-  school_time =seq(0,length(school_uk)-1),
-  school_value =school_uk,
-  comix_time =seq(0,length(covid_sche)-1),
-  comix_value =covid_sche
+  school_time = seq(0,length(school_uk)-1),
+  school_value= school_uk,
+  comix_time  = seq(0,length(covid_sche)-1),
+  comix_value = covid_sche,
+  vaccination_coverage=parameters$vaccination_coverage,
+  vacc_switch_on = seq(1,length(parameters$ages))*0,
+  campaign_switch= seq(1,length(parameters$ages))*0,
+  vacc_trans = 0,
+  vacc_dis = 0
 )
 
 pars<-c("beta_1",

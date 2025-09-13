@@ -42,7 +42,9 @@ if (length(not_installed)) {
       "06-data-covid.R",
       "07-generate-input-parameters.R",
       "08-generate-priors.R",
-      "09-run-mcmc.R"
+      #"09-run-mcmc.R"
+      "12-run-tests.R"
+      
     )
   )
   
